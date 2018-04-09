@@ -1,0 +1,42 @@
+APROACH
+1. Send the initialisation message to the receiver. 
+
+2. The receiver confirms the the mode and the init message.
+
+3. If the mode matches and the init message is authentic, the sender starts sending the data.
+
+4. In STOP and WAIT protocol, the sender sends one packet and receives the acknowledgment for that packet.
+
+5. Once it receives the packet, it sends the next packet. This is done with the help of sequence number and the acknowledgment number.
+
+6. At the receiver side, the receiver checks if the arrived packet has the sequence number in order. If not, the 
+receiver requests the next packet in order. 
+
+7. This process goes on till the end of file is reached.
+
+8. In GO-BACK-N protocol, the N stands for the sender window size. 
+
+9. The sender sends N packets and then receives the acknowledgment for the last packet which was received in order.
+
+10. If the acknowledgment received is not for the last packet sent, the sender again sends all the packets from the packet for which the acknowledgment was received to the last packet sent.
+
+11. At the receiver side, the system compares each packets sequence number with the last packet's sequence number. If the sequence number is in order, it updates the current acknowledgment received. Else it stores the sequence number of the last packet received in order.
+
+12. If the packet received is a multiple of window size, the receiver sends an acknowlegdment for the last packet received in order.
+
+
+CHALLENGES FACED
+1. The major challenge which I faced was, while implementing GO BACK N, it was a major difficulty to keep an order of packets to be resent. I had to maintain a difference of the last packet received and the last packet sent.
+
+2. Other major challenge which i faced was, maintaining end of file for the receiver. 
+
+3. Once the received packet size exceeds the file size, the transfer should end and only the relevant data should be copied.
+
+TESTING - 
+Testing was done for each stage as the project was building. Trial and error method was used by using different combinations of input and their outputs were checked. The tests were then done for combined modules and the whole project was tested. 
+
+First I tested the if the data was sent or not.
+Then the i tested whether the code worked correctly if one or more packets are skipped.
+Then i checked does the code behave as expected if the total received packet size was more than file size.
+
+
